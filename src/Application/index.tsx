@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { v4 as uuid } from 'uuid';
 import * as Component from './style';
 import ReactFlow, { removeElements, ReactFlowProvider, addEdge, Elements, Controls, updateEdge } from 'react-flow-renderer';
 import { Aside, NodeTypes } from '../Components/Aside';
-
-let nodeId = 0;
-const getNodeId = (): string => `nodeid_${nodeId++}`;
 
 export const Application = () => {
 
@@ -33,7 +31,7 @@ export const Application = () => {
     });
 
     const newNode = {
-      id: getNodeId(),
+      id: uuid(),
       type,
       position,
       data: { label: `${type} node` }

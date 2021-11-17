@@ -12,8 +12,9 @@ export const ContainerGlobal = styled.div`
   border-radius: 3px;
 
   > .HandleOptionInput {
+    width: 10px;
     height: 50px;
-    left: -6px;
+    left: -10px;
     background-color: #0c75ef;
     border-radius: 50px 0px 0px 50px;
     border: none;
@@ -24,7 +25,7 @@ export const ContainerGlobal = styled.div`
     border-radius: 0px 5px 5px 0px;
     border: none;
     height: 90px;
-    right: -9px;
+    right: -10px;
     background-color: #0c75ef;
   }
 

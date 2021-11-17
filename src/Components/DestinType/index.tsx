@@ -10,7 +10,7 @@ export const DestinType: React.FC <INodeProps> = ({ onDragStart, isInAside }) =>
     <Component.ContainerContent>
       {!isInAside ? (
         <Handle
-          position='left'
+          position="left"
           type="target"
           className="HandleOptionInput"
         />
