@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import * as Component from './style';
-import ReactFlow, { removeElements, ReactFlowProvider, addEdge, Elements, Controls, MiniMap } from 'react-flow-renderer';
+import ReactFlow, { removeElements, ReactFlowProvider, addEdge, Elements, Controls, updateEdge } from 'react-flow-renderer';
 import { Aside, NodeTypes } from '../Components/Aside';
 
 let nodeId = 0;
@@ -13,8 +13,9 @@ export const Application = () => {
   const [ Elements, setElements ] = useState<Elements>([]);
 
   const onElementRemove = (elements: Elements) => setElements((els: Elements) => removeElements(elements, els))
-  const onConnect = (edge: any) => setElements((els: Elements) => addEdge({ ...edge, animated: true, style: { stroke: '#0099ff' } }, els));
+  const onConnect = (edge: any) => setElements((els: Elements) => addEdge({ ...edge, animated: true, style: { strokeWidth: '5px', stroke: '#0099ff' } }, els));
   const onLoad = (_reactFlowInstance: any) => setReactFlowInstance(_reactFlowInstance);
+  const onUpdateEdge = (oldEdge: any, newConnection: any) => setElements((els) => updateEdge(oldEdge, newConnection, els));
 
   const onDragOver = (event: any): void => {
     event.preventDefault();
@@ -78,6 +79,7 @@ export const Application = () => {
           <ReactFlow 
             elements={Elements}
             onElementsRemove={onElementRemove}
+            onEdgeUpdate={onUpdateEdge}
             onLoad={onLoad}
             onConnect={onConnect}
             onNodeDragStop={(_, node) => onSaveData(node)}
