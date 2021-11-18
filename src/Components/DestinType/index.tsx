@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Component from './style';
-import { Handle } from 'react-flow-renderer';
+import { Handle, Position } from 'react-flow-renderer';
 import { INodeProps } from '../FileNode';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as Icon from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,7 @@ export const DestinType: React.FC <INodeProps> = ({ onDragStart, isInAside }) =>
     <Component.ContainerContent>
       {!isInAside ? (
         <Handle
-          position="left"
+          position={Position.Left}
           type="target"
           className="HandleOptionInput"
         />
@@ -49,7 +49,7 @@ export const DestinType: React.FC <INodeProps> = ({ onDragStart, isInAside }) =>
       </div>
       {!isInAside ? (
         <Handle
-          position='right'
+          position={Position.Right}
           type="source"
           id="r"
           className="HandleOptionOutPut"

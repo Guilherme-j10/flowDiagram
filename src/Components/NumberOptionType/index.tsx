@@ -1,5 +1,5 @@
 import React from 'react';
-import { Handle } from 'react-flow-renderer';
+import { Handle, Position } from 'react-flow-renderer';
 import * as Component from './style';
 import { INodeProps } from '../FileNode';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +10,7 @@ export const NumberOptionType: React.FC <INodeProps> = ({ onDragStart, isInAside
     <Component.ContainerGlobal>
       {!isInAside ? (
         <Handle
-          position='left'
+          position={Position.Left}
           type="target"
           className="HandleOptionInput"
         />
@@ -35,7 +35,7 @@ export const NumberOptionType: React.FC <INodeProps> = ({ onDragStart, isInAside
       </div>
       {!isInAside ? (
         <Handle
-          position='right'
+          position={Position.Right}
           type="source"
           id="r"
           className="HandleOptionOutPut"
